@@ -1,0 +1,44 @@
+<html>
+
+<head><title>DATA608 - Assignment5</title></head>
+
+<body>
+
+<h1>DATA608 - Assignment5</h1>
+<h2>Exercise2 - Table of Multiples</h2>
+
+<script type="text/javascript">
+
+// Basic functions
+
+function multtable(){
+    var t = document.getElementById("target");
+    var num = document.getElementById("num").value;
+    var output = "<table>";
+    var k = 1;
+    for (var i = 0; i<5;i++)
+    {output += "<tr>";
+        for (var j = 0; j<4;j++)
+        {
+            output += "<td>";
+            output += num*k;
+            k++;
+            output += "</td>"; 
+        }
+    output += "</tr>"};
+    output += "</table>";
+    t.innerHTML = output;
+}
+</script>
+
+<form>
+    <input id="num" type="numeric">
+    <input type="button" value="Multiples" onClick="multtable();">
+</form>
+
+<h4>Result:</h4>
+<div id="target"></div>
+
+
+</body>
+</html>
