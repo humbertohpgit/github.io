@@ -1,0 +1,35 @@
+<html>
+
+<head><title>DATA608 - Assignment5</title></head>
+
+<body>
+
+<h1>DATA608 - Assignment5</h1>
+<h2>Exercise1 - Reverse Word</h2>
+
+<script type="text/javascript">
+
+// Reverse function
+
+function reverse(){
+    var t = document.getElementById("target");
+    var text = document.getElementById("text").value;
+    var output = "";
+    for (var i = 0; i<text.length;i++)
+    {output = text[i]+output;}
+    t.innerHTML = output;
+}
+</script>
+<p>
+<form>
+    <input id="text" type="text">
+    <input type="button" value="Reverse" onClick="reverse();">
+</form>
+</p>
+
+<h4>Result:</h4>
+<div id="target"></div>
+
+
+</body>
+</html>
