@@ -1,0 +1,65 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>DATA608 - Assignment5</h1>
+        <h2>Exercise3 - Presidents Data</h2>
+
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+                
+        <script type="text/javascript"charset="utf-8">
+            var datacsv;
+            d3.text("https://raw.githubusercontent.com/charleyferrari/CUNY_DATA_608/master/module5/data/presidents.csv", function(data) {
+                datacsv = data;
+                var parsedCSV = d3.csv.parseRows(data);
+                var container = d3.select("body")
+                    .append("table")
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+            });
+
+
+            function search() {
+                var t = document.getElementById("target");
+                var text = document.getElementById("text").value;
+                var allTextLines = datacsv.split(/\r\n|\n/);
+                for (var i = 1; i<allTextLines.length;i++)
+                {var allAttributes = allTextLines[i].split(",");
+                if(allAttributes[0] == text)
+                {t.innerHTML = "Height: " + allAttributes[1] + "   " + "Height: " + allAttributes[2]}} 
+            }
+
+
+        </script>
+
+        <center><form>
+            <input id="text" type="text">
+            <input type="button" value="Search" onClick="search();">
+        </form></center>
+
+        <center><h4>Result:</h4></center>
+        <center><div id="target"></div></center>
+        <p></p>
+
+    </body>
+</html>
+
